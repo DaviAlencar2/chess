@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-<body class = "container bg-dark">
-    <div id = "chessboard" class = "w-50"></div>
+<body class="bg-dark text-white">
+    <div class="container d-flex justify-content-center vh-100 align-items-center">
+        <div id = "chessboard" class = "w-50"></div>
+        <div class="movements w-25 p-3 h-75 bg-light text-dark overflow-y-auto" id="movementsLog">
+            <h4 class="text-center">Movimentos:</h4>
+            <ol id="movesList" class="ps-1"></ol>
+        </div>
+    </div>
     <script type="module" src="./src/main.js"></script>
 </body>
 </html>

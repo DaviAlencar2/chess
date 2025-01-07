@@ -16,6 +16,7 @@ export function handleMove(source, target) {
             return 'snapback'; 
         }
 
+        updateMoveList(move);
         board.position(game.fen()); // Atualizar tabuleiro
 
         if (game.isCheckmate()) {
@@ -28,4 +29,17 @@ export function handleMove(source, target) {
         console.error('Erro ao realizar o movimento:', error.message);
         return 'snapback'; 
     }
+}
+
+function updateMoveList(move) {
+    const moveText = `${move.color === 'w' ? 'Branco' : 'Preto'}: ${move.san}`;
+    const listItem = $('<li></li>').text(moveText);
+
+    if ($('#movesList li').length % 2 === 0) {
+        listItem.css('background-color', '#f0f0f0'); // Claro
+    } else {
+        listItem.css('background-color', '#d3d3d3'); // Escuro
+    }
+
+    $('#movesList').append(listItem);
 }
