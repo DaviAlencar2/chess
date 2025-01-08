@@ -14,6 +14,7 @@ Este é um projeto de aprendizado desenvolvido com o objetivo principal de **se 
 
 - UI/UX
 - Funcionalidades Extras
+- Multijogador (online)
 
 ## PREVIEW
 ![PREVIEW](public/Captura%20de%20tela%202025-01-08%20083751.png)
