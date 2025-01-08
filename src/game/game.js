@@ -74,11 +74,6 @@ function highlightCheckSquares() {
     if (game.inCheck()) {
         const kingSquare = game.kingSquare(game.turn());
         $(`.square-${kingSquare}`).addClass('highlight-check');
-
-        const attackingPieces = game.attacking_pieces(kingSquare);
-        attackingPieces.forEach(square => {
-            $(`.square-${square}`).addClass('highlight-check');
-        });
     }
 }
 
@@ -93,9 +88,4 @@ game.kingSquare = function(turn) {
         }
     }
     return null;
-};
-
-game.attackingPieces = function(square) {
-    const moves = game.moves({ verbose: true });
-    return moves.filter(move => move.to === square).map(move => move.from);
 };
