@@ -28,6 +28,8 @@ export function handleMove(source, target) {
             } else if (game.isDraw()) {
                 alert('Empate!');
             }
+
+            highlightCheckSquares();
         });
 
     } catch (error) {
@@ -50,3 +52,50 @@ function updateMoveList(move) {
 
     $('#movesList').append(listItem);
 }
+
+export function resetGame() {
+    $('.square-55d63').removeClass('highlight-check');
+    game.reset();
+    board.position(game.fen());
+    $('#movesList').empty();
+}
+
+export function undoMove() {
+    $('.square-55d63').removeClass('highlight-check');
+    game.undo();
+    board.position(game.fen());
+    $('#movesList li:last-child').remove();
+}
+
+function highlightCheckSquares() {
+    // Limpar destaques anteriores
+    $('.square-55d63').removeClass('highlight-check');
+
+    if (game.inCheck()) {
+        const kingSquare = game.kingSquare(game.turn());
+        $(`.square-${kingSquare}`).addClass('highlight-check');
+
+        const attackingPieces = game.attacking_pieces(kingSquare);
+        attackingPieces.forEach(square => {
+            $(`.square-${square}`).addClass('highlight-check');
+        });
+    }
+}
+
+game.kingSquare = function(turn) {
+    const pieces = game.board();
+    for (let i = 0; i < pieces.length; i++) {
+        for (let j = 0; j < pieces[i].length; j++) {
+            const piece = pieces[i][j];
+            if (piece && piece.type === 'k' && piece.color === turn) {
+                return `${String.fromCharCode(97 + j)}${8 - i}`;
+            }
+        }
+    }
+    return null;
+};
+
+game.attackingPieces = function(square) {
+    const moves = game.moves({ verbose: true });
+    return moves.filter(move => move.to === square).map(move => move.from);
+};

@@ -9,9 +9,11 @@
     max-height: 640px; /* ⚠️Resolver isso  */
 }
 
-
-
 #moveList li{
     display: inline-block;
     width: 100%;
+}
+
+.highlight-check {
+    background-color: red !important;
 }
