@@ -36,9 +36,11 @@ function updateMoveList(move) {
     const listItem = $('<li></li>').text(moveText);
 
     if ($('#movesList li').length % 2 === 0) {
-        listItem.css('background-color', '#f0f0f0'); // Claro
+        listItem.css('background-color', '#44444440'); // Claro
+        listItem.css('color', '#EDEDED'); // Escuro
     } else {
-        listItem.css('background-color', '#d3d3d3'); // Escuro
+        listItem.css('background-color', '#17171740'); // Escuro
+        listItem.css('color', '#EDEDED'); // Claro
     }
 
     $('#movesList').append(listItem);

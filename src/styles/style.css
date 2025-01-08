@@ -1,0 +1,15 @@
+#movementsLog{
+    width: 15%;
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 5px;
+    /* backdrop-filter: blur(20px); */
+    list-style-position: inside;
+}
+
+
+
+#moveList li{
+    display: inline-block;
+    width: 100%;
+}

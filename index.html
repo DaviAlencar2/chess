@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="src/styles/style.css">
     
 <body class="bg-dark text-white">
-    <div class="container d-flex justify-content-center vh-100 align-items-center">
+    <header class="text-center mt-3">
+        <a href="#" class="btn btn-primary">Baixar Partida</a>
+        <a href="#" class="btn btn-primary">Nova Partida</a>
+    </header>
+    <div class="container d-flex justify-content-center pt-5">
         <div id = "chessboard" class = "w-50"></div>
-        <div class="movements w-25 p-3 h-75 bg-light text-dark overflow-y-auto" id="movementsLog">
-            <h4 class="text-center">Movimentos:</h4>
-            <ol id="movesList" class="ps-1"></ol>
+        <div class="movements text-light overflow-y-auto" id="movementsLog">
+            <h4 class="text-center">Jogadas:</h4>
+            <ol id="movesList" class="text-center ps-0"></ol>
         </div>
     </div>
     <script type="module" src="./src/main.js"></script>
