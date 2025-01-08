@@ -17,13 +17,18 @@ export function handleMove(source, target) {
         }
 
         updateMoveList(move);
-        board.position(game.fen()); // Atualizar tabuleiro
-
-        if (game.isCheckmate()) {
-            alert('Xeque-mate!');
-        } else if (game.isDraw()) {
-            alert('Empate!');
-        }
+        
+        // Atualizar o tabuleiro após o movimento
+        requestAnimationFrame(() => {
+            board.position(game.fen()); // Atualizar tabuleiro
+            console.log('Estado do tabuleiro após a atualização:', game.fen());
+        
+            if (game.isCheckmate()) {
+                alert('Xeque-mate!');
+            } else if (game.isDraw()) {
+                alert('Empate!');
+            }
+        });
 
     } catch (error) {
         console.error('Erro ao realizar o movimento:', error.message);
