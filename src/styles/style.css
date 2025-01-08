@@ -5,6 +5,8 @@
     border-radius: 5px;
     /* backdrop-filter: blur(20px); */
     list-style-position: inside;
+    overflow-y: scroll;
+    max-height: 640px; /* ⚠️Resolver isso  */
 }
 
 

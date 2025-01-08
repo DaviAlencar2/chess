@@ -5,16 +5,19 @@ Este é um projeto de aprendizado desenvolvido com o objetivo principal de **se 
 ## 📦 Objetivo Principal
 
 - Compreender como o **Vite** funciona na estruturação e construção de projetos web.
-- Praticar a **importação e uso de bibliotecas JS** como `chess.js` e `chessboard.js`.
+- Praticar a **importação e uso de bibliotecas JS** como `chess.js` e `chessboardjs`.
 - Controlar o carregamento de **recursos estáticos** e a manipulação do DOM.
 
 ---
 
 ## 📚 Próximos Passos
 
-- Lógica do jogo
 - UI/UX
 - Funcionalidades Extras
+
+## PREVIEW
+![PREVIEW](public/Captura%20de%20tela%202025-01-08%20083751.png)
+
 
 
 
