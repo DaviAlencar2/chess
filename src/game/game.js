@@ -1,7 +1,6 @@
 import {Chess}  from 'chess.js';
 import {board} from '../components/chessboard';
 
-
 const game = new Chess();
 
 export function handleMove(source, target) { 
@@ -17,14 +16,27 @@ export function handleMove(source, target) {
         }
 
         updateMoveList(move);
-        
+
         // Atualizar o tabuleiro após o movimento
         requestAnimationFrame(() => {
             board.position(game.fen()); // Atualizar tabuleiro
             console.log('Estado do tabuleiro após a atualização:', game.fen());
         
-            if (game.isCheckmate()) {
-                alert('Xeque-mate!');
+            if (game.isCheckmate()) { // ⚠️Melhoria no futuro
+                const chessboard = document.getElementById('chessboard');
+                const winner = game.turn() === 'w' ? 'Preto' : 'Branco';
+                const message = `Xeque-mate! O vencedor é ${winner}!`;
+                const divMessage = document.createElement('div');
+                divMessage.innerHTML = message;
+                divMessage.className = 'message';
+                divMessage.style.color = 'red';
+                divMessage.style.fontWeight = 'bold';
+                divMessage.style.fontSize = '24px';
+                divMessage.style.textAlign = 'center';
+                divMessage.style.marginTop = '10px';
+                divMessage.style.border = '1px solid red';
+                chessboard.appendChild(divMessage);
+                
             } else if (game.isDraw()) {
                 alert('Empate!');
             }
@@ -54,6 +66,11 @@ function updateMoveList(move) {
 }
 
 export function resetGame() {
+    const divMessage = document.querySelector('.message');
+    if (divMessage) {
+        divMessage.remove();
+    }
+
     $('.square-55d63').removeClass('highlight-check');
     game.reset();
     board.position(game.fen());
